@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────
+   STITCH V2 "Editorial Engineering" Design System
+   Source of truth: design/stitch-export/DESIGN.md
+   ───────────────────────────────────────────── */
+
+@theme {
+  /* ── Fonts ── */
+  --font-headline: "Geist", sans-serif;
+  --font-body:     "Geist", sans-serif;
+  --font-mono:     "JetBrains Mono", monospace;
+
+  /* ── Canvas & Surface Hierarchy ── */
+  --color-background:                #0D0D0D;
+  --color-surface:                   #0D0D0D;
+  --color-surface-container:         #141414;
+  --color-surface-container-high:    #1A1A1A;
+  --color-surface-container-low:     #101010;
+  --color-surface-container-lowest:  #080808;
+
+  /* ── Borders ── */
+  --color-outline:         #252525;
+  --color-outline-variant: #252525;
+  --color-outline-hover:   #3E3E3E;
+
+  /* ── Typographic Inks ── */
+  --color-primary:              #FFFFFF;
+  --color-on-primary:           #0D0D0D;
+  --color-on-surface:           #E5E2E1;
+  --color-on-surface-variant:   #A1A19A;
+  --color-muted:                #6F6D68;
+
+  /* ── Accent: Champagne ── */
+  --color-secondary:       #B8A98A;
+  --color-secondary-fixed: #C9BC9F;
+
+  /* ── Border Radius: strict 0 everywhere ── */
+  --radius:    0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+}
+
+/* ─── Global base ─── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    border-radius: 0 !important;   /* Enforce 0 radius system-wide */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #0D0D0D;
+    color: #E5E2E1;
+  }
+
+  body {
+    font-family: "Geist", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior: none;
+  }
+
+  /* Scrollbar: hidden (matches Stitch export) */
+  ::-webkit-scrollbar { display: none; }
+  * { scrollbar-width: none; }
+
+  /* Selection: champagne accent */
+  ::selection {
+    background-color: #1A1A1A;
+    color: #B8A98A;
+  }
+
+  /* ─── Focus-visible ring — champagne, no radius ───
+     Visible for keyboard users; hidden on mouse click.
+     Applies globally so every interactive element is covered. */
+  :focus-visible {
+    outline: 1.5px solid #B8A98A;
+    outline-offset: 2px;
+  }
+
+  /* ─── prefers-reduced-motion ───────────────────
+     When the OS has motion reduction enabled:
+     - collapse all CSS transition/animation durations to near-zero
+     - Framer Motion reads this same media query automatically
+       via its built-in MotionConfig / useReducedMotion logic    */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:        0.01ms !important;
+      animation-iteration-count: 1      !important;
+      transition-duration:       0.01ms !important;
+      scroll-behavior:           auto   !important;
+    }
+  }
+}
+
