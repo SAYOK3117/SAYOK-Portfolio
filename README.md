@@ -1,32 +1,41 @@
-# React + TypeScript + Vite
+# Sayok Biswas — Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal developer portfolio showcasing my projects, skills, and journey as a CSE student at PSIT Kanpur.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Motion
+- Lucide React
 
-## React Compiler
+## Featured Work
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### ORCA
+Marine EcOsystem Reasoning with Collaborative Agents
 
-## Expanding the Oxlint configuration
+Smart India Hackathon 2026 — Round 2 Ongoing
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Other Projects
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+- TrainControl — Intelligent Train Control System
+- Nagrik Setu — AI-Based Grievance Chatbot
+- SmartFlow — AI Traffic System
+- AI Interviewer
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Features
+
+- Responsive design
+- Editorial dark UI
+- Featured project presentation
+- Motion interactions
+- Resume download
+- GitHub, LinkedIn and LeetCode links
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
