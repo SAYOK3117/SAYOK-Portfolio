@@ -30,7 +30,7 @@ export function Journey() {
       aria-labelledby="journey-heading"
       className="w-full border-b border-[#252525] bg-[#0D0D0D]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-32">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 py-16 md:py-32">
 
         {/* ── Section header ── */}
         <div className="flex items-end justify-between pb-4 border-b border-[#252525] mb-0">

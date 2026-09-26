@@ -8,73 +8,43 @@ import { ProjectCard } from './ProjectCard';
    No fake metrics or invented node labels.
    ───────────────────────────────────────────── */
 function OrcaArchDiagram() {
-  const topNodes = [
-    { x: 80,  label: 'Spatial' },
-    { x: 190, label: 'Reasoning' },
-    { x: 300, label: 'Advisory' },
-  ];
-  const botNodes = [
-    { x: 120, label: 'Ingestion' },
-    { x: 260, label: 'Synthesis' },
-  ];
-  const coordY = 22;
-  const topY   = 82;
-  const botY   = 142;
-
   return (
-    <svg
-      viewBox="0 0 380 190"
-      fill="none"
-      stroke="none"
-      className="w-full h-auto"
-      aria-hidden="true"
-    >
-      {topNodes.map((n) => (
-        <line key={`c-${n.label}`}
-          x1={190} y1={coordY + 22} x2={n.x} y2={topY - 12}
-          stroke="#6F6D68" strokeOpacity="0.65" strokeDasharray="3 3" />
-      ))}
-      <line x1={80}  y1={topY + 22} x2={120} y2={botY - 12} stroke="#6F6D68" strokeOpacity="0.5" strokeDasharray="3 3" />
-      <line x1={190} y1={topY + 22} x2={120} y2={botY - 12} stroke="#6F6D68" strokeOpacity="0.5" strokeDasharray="3 3" />
-      <line x1={190} y1={topY + 22} x2={260} y2={botY - 12} stroke="#6F6D68" strokeOpacity="0.5" strokeDasharray="3 3" />
-      <line x1={300} y1={topY + 22} x2={260} y2={botY - 12} stroke="#6F6D68" strokeOpacity="0.5" strokeDasharray="3 3" />
-      <line x1={120} y1={botY + 22} x2={260} y2={botY + 22} stroke="#6F6D68" strokeOpacity="0.4" strokeDasharray="3 3" />
-      <line x1={190} y1={botY + 22} x2={190} y2={botY + 34} stroke="#6F6D68" strokeOpacity="0.4" strokeDasharray="3 3" />
-
-      <rect x={108} y={coordY} width={164} height={22} fill="#111111" stroke="#B8A98A" strokeWidth="1" />
-      <text x={190} y={coordY + 15} textAnchor="middle" fill="#E5E2E1"
-        fontFamily="JetBrains Mono, monospace" fontSize="9" fontWeight="500">
+    <div className="flex flex-col items-center w-full font-mono text-[9px] sm:text-[10px] md:text-xs">
+      <div className="w-full sm:w-3/4 border border-[#B8A98A] bg-[#111111] py-2.5 px-2 text-center text-[#E5E2E1] font-medium tracking-wide">
         Coordinator Agent
-      </text>
+      </div>
 
-      {topNodes.map((n) => (
-        <g key={n.label}>
-          <rect x={n.x - 52} y={topY - 12} width={104} height={22} fill="#111111" stroke="#3E3E3E" strokeWidth="1" />
-          <text x={n.x} y={topY + 4} textAnchor="middle" fill="#A1A19A"
-            fontFamily="JetBrains Mono, monospace" fontSize="8" fontWeight="500">
-            {n.label} Agent
-          </text>
-        </g>
-      ))}
+      <div className="w-px h-5 border-l border-dashed border-[#6F6D68] opacity-70"></div>
 
-      {botNodes.map((n, i) => (
-        <g key={n.label}>
-          <rect x={n.x - 58} y={botY - 12} width={116} height={22}
-            fill="#111111" stroke={i === 1 ? '#B8A98A' : '#3E3E3E'} strokeWidth="1" />
-          <text x={n.x} y={botY + 4} textAnchor="middle"
-            fill={i === 1 ? '#E5E2E1' : '#A1A19A'}
-            fontFamily="JetBrains Mono, monospace" fontSize="8" fontWeight="500">
-            {n.label} Layer
-          </text>
-        </g>
-      ))}
+      <div className="flex flex-col sm:flex-row gap-3 w-full">
+        <div className="flex-1 border border-[#3E3E3E] bg-[#111111] py-2.5 px-1 text-center text-[#A1A19A] font-medium">
+          Spatial Agent
+        </div>
+        <div className="flex-1 border border-[#3E3E3E] bg-[#111111] py-2.5 px-1 text-center text-[#A1A19A] font-medium">
+          Reasoning Agent
+        </div>
+        <div className="flex-1 border border-[#3E3E3E] bg-[#111111] py-2.5 px-1 text-center text-[#A1A19A] font-medium">
+          Advisory Agent
+        </div>
+      </div>
 
-      <rect x={135} y={botY + 34} width={110} height={20} fill="#111111" stroke="#B8A98A" strokeWidth="1" />
-      <text x={190} y={botY + 48} textAnchor="middle" fill="#B8A98A"
-        fontFamily="JetBrains Mono, monospace" fontSize="8" fontWeight="500">
+      <div className="w-px h-5 border-l border-dashed border-[#6F6D68] opacity-70"></div>
+
+      <div className="flex flex-col sm:flex-row gap-3 w-full">
+        <div className="flex-1 border border-[#3E3E3E] bg-[#111111] py-2.5 px-1 text-center text-[#A1A19A] font-medium">
+          Ingestion Layer
+        </div>
+        <div className="flex-1 border border-[#B8A98A] bg-[#111111] py-2.5 px-1 text-center text-[#E5E2E1] font-medium tracking-wide">
+          Synthesis Layer
+        </div>
+      </div>
+
+      <div className="w-px h-5 border-l border-dashed border-[#6F6D68] opacity-70"></div>
+
+      <div className="w-full sm:w-2/3 border border-[#B8A98A] bg-[#111111] py-2.5 px-2 text-center text-[#B8A98A] font-medium tracking-wide">
         UI / Tactical Map
-      </text>
-    </svg>
+      </div>
+    </div>
   );
 }
 
@@ -92,7 +62,7 @@ export function Projects() {
       aria-labelledby="projects-heading"
       className="w-full border-b border-[#252525] bg-[#0D0D0D]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-16 md:py-32">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 py-16 md:py-32">
 
         {/* ── Section header ── */}
         <div className="flex items-end justify-between pb-4 border-b border-[#252525] mb-10 md:mb-16">

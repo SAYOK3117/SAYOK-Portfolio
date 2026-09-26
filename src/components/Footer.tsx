@@ -22,7 +22,7 @@ export function Footer() {
 
   return (
     <footer role="contentinfo" className="w-full border-t border-[#252525] bg-[#0D0D0D]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12">
 
         {/* Main footer row — stacks on mobile */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 sm:py-12 border-b border-[#252525]">

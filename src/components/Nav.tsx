@@ -67,13 +67,13 @@ export function Nav() {
           : 'bg-[#0D0D0D]/95 backdrop-blur-sm border-[#252525]'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 h-14 md:h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 h-14 md:h-16 flex items-center justify-between">
 
         {/* Logo */}
         <a
           href="#"
           onClick={(e) => handleAnchor(e, '#')}
-          className="font-mono text-[11px] tracking-widest text-white uppercase font-semibold hover:text-[#B8A98A] transition-colors duration-200"
+          className="font-mono text-xs sm:text-sm tracking-widest text-white uppercase font-semibold hover:text-[#B8A98A] transition-colors duration-200"
         >
           SAYOK BISWAS
         </a>
@@ -160,7 +160,7 @@ export function Nav() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="flex items-center font-mono text-[11px] uppercase tracking-[0.18em] text-[#A1A19A] hover:text-white hover:bg-[#141414] transition-colors duration-150 px-4 py-4 border-b border-[#252525] min-h-[48px]"
+                  className="flex items-center font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-[#A1A19A] hover:text-white hover:bg-[#141414] transition-colors duration-150 px-5 sm:px-6 py-4 border-b border-[#252525] min-h-[48px]"
                   onClick={(e) => handleAnchor(e, link.href)}
                 >
                   {link.name}
@@ -170,7 +170,7 @@ export function Nav() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-[#B8A98A] hover:bg-[#141414] transition-colors duration-150 px-4 py-4 min-h-[48px]"
+                className="flex items-center justify-between font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-[#B8A98A] hover:bg-[#141414] transition-colors duration-150 px-5 sm:px-6 py-4 min-h-[48px]"
                 onClick={() => setOpen(false)}
               >
                 <span>Resume</span>
