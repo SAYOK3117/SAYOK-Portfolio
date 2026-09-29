@@ -46,32 +46,8 @@ export function About() {
             transition={{ duration: 0.55 }}
             className="lg:col-span-5"
           >
-            {/* Double-border portrait card */}
-            <div className="border border-[#252525] bg-[#141414] p-2 group transition-colors duration-300 hover:border-[#B8A98A]">
-              <div className="overflow-hidden border border-[#252525] bg-[#080808]">
-                <img
-                  src="/portrait.jpg"
-                  alt="Sayok Biswas — CSE student, PSIT Kanpur"
-                  className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:scale-[1.02] block"
-                  style={{ filter: 'none' }}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).style.display = 'none';
-                  }}
-                />
-              </div>
-              {/* Caption bar */}
-              <div className="px-3.5 py-3 border-t border-[#252525] bg-[#141414] flex items-center justify-between">
-                <span className="font-mono text-xs text-white font-medium tracking-wide">
-                  Sayok Biswas
-                </span>
-                <span className="font-mono text-xs text-[#A1A19A]">
-                  PSIT Kanpur
-                </span>
-              </div>
-            </div>
-
-            {/* Metadata strip below portrait */}
-            <div className="mt-3 border border-[#252525] bg-[#141414]">
+            {/* Metadata strip */}
+            <div className="border border-[#252525] bg-[#141414]">
               <div className="flex items-center border-b border-[#252525]">
                 <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#B8A98A] px-3 sm:px-4 py-2.5 border-r border-[#252525] w-24 sm:w-28 shrink-0">
                   Degree
