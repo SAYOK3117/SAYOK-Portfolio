@@ -1,4 +1,11 @@
 import { motion } from 'framer-motion';
+import { Github, Linkedin } from 'lucide-react';
+
+const LeetCodeIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+    <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.515 1.365.497 1.9-.038.536-.536.554-1.387.039-1.901l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.498-1.366-.037-1.901-.535-.536-1.387-.554-1.902-.039l-10.1 10.241c-.466.467-.702 1.15-.702 1.863s.235 1.357.702 1.824l4.332 4.363c.467.467 1.111.662 1.824.662s1.357-.195 1.824-.662l2.697-2.606c.514-.515 1.365-.497 1.9.038.536.536.554 1.387.039 1.901z"/>
+  </svg>
+);
 
 function PhotoCard() {
   return (
@@ -116,11 +123,17 @@ export function Hero() {
 
             <div className="hidden sm:block h-4 w-px bg-outline mx-1" aria-hidden="true" />
 
-            {/* Social inline links */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-5 text-xs font-mono text-on-surface-variant mt-2 sm:mt-0 w-full sm:w-auto">
-              <a href="https://github.com/SAYOK3117"   target="_blank" rel="noopener noreferrer" className="hover:text-on-surface transition-colors py-2">GitHub ↗</a>
-              <a href="https://www.linkedin.com/in/sayok-biswas-479123387/" target="_blank" rel="noopener noreferrer" className="hover:text-on-surface transition-colors py-2">LinkedIn ↗</a>
-              <a href="https://leetcode.com/u/sayok_biswas__07/" target="_blank" rel="noopener noreferrer" className="hover:text-on-surface transition-colors py-2">LeetCode ↗</a>
+            {/* Social icon links */}
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-5 mt-2 sm:mt-0 w-full sm:w-auto">
+              <a href="https://github.com/SAYOK3117" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="GitHub">
+                <Github className="w-[18px] h-[18px]" strokeWidth={1.5} />
+              </a>
+              <a href="https://www.linkedin.com/in/sayok-biswas-479123387/" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="LinkedIn">
+                <Linkedin className="w-[18px] h-[18px]" strokeWidth={1.5} />
+              </a>
+              <a href="https://leetcode.com/u/sayok_biswas__07/" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="LeetCode">
+                <LeetCodeIcon className="w-[18px] h-[18px]" />
+              </a>
             </div>
           </motion.div>
         </div>
