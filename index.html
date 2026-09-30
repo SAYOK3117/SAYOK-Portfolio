@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sayok Biswas — CSE student at PSIT Kanpur building software and exploring AI through hackathons and projects." />
 
+    <script>
+      (function() {
+        try {
+          var savedTheme = localStorage.getItem('theme');
+          var systemLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          if (savedTheme === 'light' || (!savedTheme && systemLight)) {
+            document.documentElement.classList.add('light');
+          } else {
+            document.documentElement.classList.remove('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Geist (body + headline) + JetBrains Mono (labels + code) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

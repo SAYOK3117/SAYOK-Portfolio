@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
    Stitch V2 — Nav
@@ -18,6 +18,62 @@ const NAV_LINKS = [
   { name: 'Achievements', href: '#achievements' },
   { name: 'Contact',      href: '#contact' },
 ];
+
+function ThemeToggle() {
+  const [isLight, setIsLight] = useState(false);
+  const shouldReduce = useReducedMotion();
+
+  useEffect(() => {
+    setIsLight(document.documentElement.classList.contains('light'));
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setIsLight((prev) => {
+      const newTheme = !prev;
+      if (newTheme) {
+        document.documentElement.classList.add('light');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
+      }
+      return newTheme;
+    });
+  }, []);
+
+  return (
+    <button
+      onClick={toggleTheme}
+      title="Toggle theme"
+      aria-label="Toggle theme"
+      className="text-on-surface-variant hover:text-on-surface transition-colors duration-300 p-2 flex items-center justify-center focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary relative overflow-hidden"
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        {isLight ? (
+          <motion.div
+            key="sun"
+            initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+            transition={{ duration: shouldReduce ? 0 : 0.2 }}
+          >
+            <Sun className="w-[18px] h-[18px]" strokeWidth={1.5} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="moon"
+            initial={{ opacity: 0, rotate: 90, scale: 0.8 }}
+            animate={{ opacity: 1, rotate: 0, scale: 1 }}
+            exit={{ opacity: 0, rotate: -90, scale: 0.8 }}
+            transition={{ duration: shouldReduce ? 0 : 0.2 }}
+          >
+            <Moon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </button>
+  );
+}
 
 export function Nav() {
   const [open, setOpen]       = useState(false);
@@ -63,8 +119,8 @@ export function Nav() {
     <header
       className={`fixed top-0 left-0 w-full z-50 border-b transition-colors duration-300 ${
         scrolled
-          ? 'bg-[#0D0D0D] border-[#3E3E3E]'
-          : 'bg-[#0D0D0D]/95 backdrop-blur-sm border-[#252525]'
+          ? 'bg-background border-outline-hover'
+          : 'bg-background/95 backdrop-blur-sm border-outline'
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 h-14 md:h-16 flex items-center justify-between">
@@ -73,32 +129,33 @@ export function Nav() {
         <a
           href="#"
           onClick={(e) => handleAnchor(e, '#')}
-          className="font-mono text-xs sm:text-sm tracking-widest text-white uppercase font-semibold hover:text-[#B8A98A] transition-colors duration-200"
+          className="font-mono text-xs sm:text-sm tracking-widest text-on-surface uppercase font-semibold hover:text-secondary transition-colors duration-200"
         >
           SAYOK BISWAS
         </a>
 
-        {/* Desktop nav */}
-        <nav 
-          className="hidden md:flex items-center gap-7" 
+        <div className="flex items-center gap-1 sm:gap-2 md:gap-5">
+          {/* Desktop nav */}
+          <nav 
+            className="hidden md:flex items-center gap-7" 
           aria-label="Primary navigation"
           onMouseLeave={() => setHoveredNav(null)}
         >
           <AnimatePresence>
-            <div className="flex items-center gap-7 text-xs font-mono text-[#A1A19A]">
+            <div className="flex items-center gap-7 text-xs font-mono text-on-surface-variant">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleAnchor(e, link.href)}
                   onMouseEnter={() => setHoveredNav(link.name)}
-                  className="relative hover:text-white transition-colors duration-200 py-1 z-10"
+                  className="relative hover:text-on-surface transition-colors duration-200 py-1 z-10"
                 >
                   {link.name}
                   {hoveredNav === link.name && !shouldReduce && (
                     <motion.div
                       layoutId="nav-hover-pill"
-                      className="absolute -inset-x-3 -inset-y-1.5 bg-[#1A1A1A] border border-[#3E3E3E] rounded-full -z-10"
+                      className="absolute -inset-x-3 -inset-y-1.5 bg-surface-container-high border border-outline-hover rounded-full -z-10"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -113,13 +170,13 @@ export function Nav() {
               target="_blank"
               rel="noopener noreferrer"
               onMouseEnter={() => setHoveredNav('Resume')}
-              className="relative font-mono text-xs text-[#E5E2E1] hover:text-white border border-[#252525] hover:border-[#B8A98A] px-3 py-1.5 transition-colors duration-200 uppercase tracking-wider flex items-center gap-1.5 z-10"
+              className="relative font-mono text-xs text-on-surface hover:text-on-surface border border-outline hover:border-secondary px-3 py-1.5 transition-colors duration-200 uppercase tracking-wider flex items-center gap-1.5 z-10"
             >
-              Resume <span className="text-[#B8A98A]">↗</span>
+              Resume <span className="text-secondary">↗</span>
               {hoveredNav === 'Resume' && !shouldReduce && (
                 <motion.div
                   layoutId="nav-hover-pill"
-                  className="absolute inset-0 bg-[#1A1A1A] border border-[#3E3E3E] rounded-full -z-10"
+                  className="absolute inset-0 bg-surface-container-high border border-outline-hover rounded-full -z-10"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -130,9 +187,11 @@ export function Nav() {
           </AnimatePresence>
         </nav>
 
+        <ThemeToggle />
+
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#A1A19A] hover:text-white transition-colors duration-200 p-2 -mr-1 min-h-[44px] min-w-[44px] flex items-center justify-center"
+          className="md:hidden text-on-surface-variant hover:text-on-surface transition-colors duration-200 p-2 -mr-1 min-h-[44px] min-w-[44px] flex items-center justify-center"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-drawer"
@@ -140,6 +199,7 @@ export function Nav() {
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
+      </div>
       </div>
 
       {/* Mobile drawer */}
@@ -153,14 +213,14 @@ export function Nav() {
             exit="hidden"
             variants={shouldReduce ? {} : drawerVariants}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="md:hidden bg-[#0D0D0D] border-b border-[#252525]"
+            className="md:hidden bg-background border-b border-outline"
           >
             <nav aria-label="Mobile navigation">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="flex items-center font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-[#A1A19A] hover:text-white hover:bg-[#141414] transition-colors duration-150 px-5 sm:px-6 py-4 border-b border-[#252525] min-h-[48px]"
+                  className="flex items-center font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 px-5 sm:px-6 py-4 border-b border-outline min-h-[48px]"
                   onClick={(e) => handleAnchor(e, link.href)}
                 >
                   {link.name}
@@ -170,7 +230,7 @@ export function Nav() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-[#B8A98A] hover:bg-[#141414] transition-colors duration-150 px-5 sm:px-6 py-4 min-h-[48px]"
+                className="flex items-center justify-between font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-secondary hover:bg-surface-container transition-colors duration-150 px-5 sm:px-6 py-4 min-h-[48px]"
                 onClick={() => setOpen(false)}
               >
                 <span>Resume</span>

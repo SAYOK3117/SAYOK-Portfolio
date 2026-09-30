@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 
 function PhotoCard() {
   return (
-    <div className="border border-[#252525] bg-[#141414] p-2 sm:p-3 group transition-colors duration-300 hover:border-[#B8A98A] w-full max-w-sm mx-auto lg:max-w-none">
-      <div className="overflow-hidden border border-[#252525] bg-[#080808] aspect-[3/4] sm:aspect-auto">
+    <div className="border border-outline bg-surface-container p-2 sm:p-3 group transition-colors duration-300 hover:border-secondary w-full max-w-sm mx-auto lg:max-w-none">
+      <div className="overflow-hidden border border-outline bg-background aspect-[3/4] sm:aspect-auto">
         <img
           src="/portrait.jpg"
           alt="Sayok Biswas — CSE student, PSIT Kanpur"
@@ -15,11 +15,11 @@ function PhotoCard() {
         />
       </div>
       {/* Caption bar */}
-      <div className="px-3.5 py-3 border-t border-[#252525] bg-[#141414] flex items-center justify-between">
-        <span className="font-mono text-xs text-white font-medium tracking-wide">
+      <div className="px-3.5 py-3 border-t border-outline bg-surface-container flex items-center justify-between">
+        <span className="font-mono text-xs text-on-surface font-medium tracking-wide">
           Sayok Biswas
         </span>
-        <span className="font-mono text-xs text-[#A1A19A]">
+        <span className="font-mono text-xs text-on-surface-variant">
           PSIT Kanpur
         </span>
       </div>
@@ -29,7 +29,7 @@ function PhotoCard() {
 
 export function Hero() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-12 py-12 sm:py-16 md:py-32 border-b border-[#252525]">
+    <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-12 py-12 sm:py-16 md:py-32 border-b border-outline">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center lg:items-start">
 
         {/* ── Left column ── */}
@@ -41,9 +41,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#252525] bg-[#141414] text-[10px] font-mono text-[#B8A98A] mb-5 sm:mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 border border-outline bg-surface-container text-[10px] font-mono text-secondary mb-5 sm:mb-6"
             >
-              <span className="w-1.5 h-1.5 bg-[#B8A98A] inline-block" />
+              <span className="w-1.5 h-1.5 bg-secondary inline-block" />
               CSE Student @ PSIT Kanpur
             </motion.div>
 
@@ -52,7 +52,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white font-[Geist] uppercase mb-6 lg:mb-5"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-on-surface font-[Geist] uppercase mb-6 lg:mb-5"
             >
               SAYOK BISWAS
             </motion.h2>
@@ -72,11 +72,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="text-3xl sm:text-4xl lg:text-6xl font-normal tracking-tight text-white font-[Geist] leading-[1.15] mb-5 sm:mb-6"
+              className="text-3xl sm:text-4xl lg:text-6xl font-normal tracking-tight text-on-surface font-[Geist] leading-[1.15] mb-5 sm:mb-6"
             >
               Building software.<br />
               Exploring AI.<br />
-              <span className="text-[#A1A19A]">Learning by shipping.</span>
+              <span className="text-on-surface-variant">Learning by shipping.</span>
             </motion.h1>
 
             {/* Subhead */}
@@ -84,7 +84,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base md:text-lg text-[#E5E2E1] max-w-xl font-normal leading-relaxed"
+              className="text-base md:text-lg text-on-surface max-w-xl font-normal leading-relaxed"
             >
               CSE student building software and exploring AI.
             </motion.p>
@@ -95,12 +95,12 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.3 }}
-            className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4 pt-6 md:pt-8 border-t border-[#252525]"
+            className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4 pt-6 md:pt-8 border-t border-outline"
           >
             {/* Primary CTA */}
             <a
               href="#projects"
-              className="inline-flex items-center justify-center px-5 py-3.5 sm:py-2.5 bg-white text-[#0D0D0D] font-mono text-xs uppercase tracking-wider font-medium hover:bg-[#C9BC9F] transition-colors min-h-[48px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-5 py-3.5 sm:py-2.5 bg-secondary text-on-primary font-mono text-xs uppercase tracking-wider font-medium hover:bg-secondary-fixed transition-colors min-h-[48px] w-full sm:w-auto"
             >
               Selected Work ↓
             </a>
@@ -109,18 +109,18 @@ export function Hero() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-5 py-3.5 sm:py-2.5 bg-transparent border border-[#252525] text-[#E5E2E1] hover:text-white hover:border-[#B8A98A] font-mono text-xs uppercase tracking-wider transition-colors min-h-[48px] w-full sm:w-auto"
+              className="inline-flex items-center justify-center px-5 py-3.5 sm:py-2.5 bg-transparent border border-outline text-on-surface hover:text-on-surface hover:border-secondary font-mono text-xs uppercase tracking-wider transition-colors min-h-[48px] w-full sm:w-auto"
             >
               Resume ↗
             </a>
 
-            <div className="hidden sm:block h-4 w-px bg-[#252525] mx-1" aria-hidden="true" />
+            <div className="hidden sm:block h-4 w-px bg-outline mx-1" aria-hidden="true" />
 
             {/* Social inline links */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-5 text-xs font-mono text-[#A1A19A] mt-2 sm:mt-0 w-full sm:w-auto">
-              <a href="https://github.com/SAYOK3117"   target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-2">GitHub ↗</a>
-              <a href="https://www.linkedin.com/in/sayok-biswas-479123387/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-2">LinkedIn ↗</a>
-              <a href="https://leetcode.com/u/sayok_biswas__07/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors py-2">LeetCode ↗</a>
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-5 text-xs font-mono text-on-surface-variant mt-2 sm:mt-0 w-full sm:w-auto">
+              <a href="https://github.com/SAYOK3117"   target="_blank" rel="noopener noreferrer" className="hover:text-on-surface transition-colors py-2">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/sayok-biswas-479123387/" target="_blank" rel="noopener noreferrer" className="hover:text-on-surface transition-colors py-2">LinkedIn ↗</a>
+              <a href="https://leetcode.com/u/sayok_biswas__07/" target="_blank" rel="noopener noreferrer" className="hover:text-on-surface transition-colors py-2">LeetCode ↗</a>
             </div>
           </motion.div>
         </div>

@@ -12,34 +12,57 @@
   --font-mono:     "JetBrains Mono", monospace;
 
   /* ── Canvas & Surface Hierarchy ── */
-  --color-background:                #0D0D0D;
-  --color-surface:                   #0D0D0D;
-  --color-surface-container:         #141414;
-  --color-surface-container-high:    #1A1A1A;
+  --color-background:                #0B0B0A;
+  --color-surface:                   #0B0B0A;
+  --color-surface-container:         #121211;
+  --color-surface-container-high:    #181817;
   --color-surface-container-low:     #101010;
-  --color-surface-container-lowest:  #080808;
+  --color-surface-container-lowest:  #0B0B0A;
 
   /* ── Borders ── */
-  --color-outline:         #252525;
-  --color-outline-variant: #252525;
-  --color-outline-hover:   #3E3E3E;
+  --color-outline:         #292824;
+  --color-outline-variant: #292824;
+  --color-outline-hover:   #383632;
 
   /* ── Typographic Inks ── */
   --color-primary:              #FFFFFF;
-  --color-on-primary:           #0D0D0D;
-  --color-on-surface:           #E5E2E1;
-  --color-on-surface-variant:   #A1A19A;
-  --color-muted:                #6F6D68;
+  --color-on-primary:           #0B0B0A;
+  --color-on-surface:           #F2F0EA;
+  --color-on-surface-variant:   #A6A39B;
+  --color-muted:                #74716A;
 
   /* ── Accent: Champagne ── */
-  --color-secondary:       #B8A98A;
-  --color-secondary-fixed: #C9BC9F;
+  --color-secondary:       #B89B72;
+  --color-secondary-fixed: #D0B58A;
 
   /* ── Border Radius: strict 0 everywhere ── */
   --radius:    0px;
   --radius-sm: 0px;
   --radius-md: 0px;
   --radius-lg: 0px;
+}
+
+/* ── Light Mode Palette ── */
+.light {
+  --color-background:                #F5F3EE;
+  --color-surface:                   #F5F3EE;
+  --color-surface-container:         #ECE9E2;
+  --color-surface-container-high:    #E3DED5;
+  --color-surface-container-low:     #F0EDEA;
+  --color-surface-container-lowest:  #F5F3EE;
+
+  --color-outline:         #D8D4CA;
+  --color-outline-variant: #D8D4CA;
+  --color-outline-hover:   #9A7B50;
+
+  --color-primary:              #171715;
+  --color-on-primary:           #F5F3EE;
+  --color-on-surface:           #171715;
+  --color-on-surface-variant:   #66645E;
+  --color-muted:                #85827A;
+
+  --color-secondary:       #9A7B50;
+  --color-secondary-fixed: #D0B58A;
 }
 
 /* ─── Global base ─── */
@@ -56,8 +79,8 @@
   html, body {
     margin: 0;
     padding: 0;
-    background-color: #0D0D0D;
-    color: #E5E2E1;
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
   }
 
   body {
@@ -73,15 +96,15 @@
 
   /* Selection: champagne accent */
   ::selection {
-    background-color: #1A1A1A;
-    color: #B8A98A;
+    background-color: #181817;
+    color: #B89B72;
   }
 
   /* ─── Focus-visible ring — champagne, no radius ───
      Visible for keyboard users; hidden on mouse click.
      Applies globally so every interactive element is covered. */
   :focus-visible {
-    outline: 1.5px solid #B8A98A;
+    outline: 1.5px solid #B89B72;
     outline-offset: 2px;
   }
 

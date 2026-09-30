@@ -10,10 +10,10 @@ import { Footer }       from './components/Footer';
 
 function App() {
   return (
-    <div className="overflow-x-hidden bg-[#0D0D0D] text-[#E5E2E1] antialiased selection:bg-[#1A1A1A] selection:text-[#B8A98A] font-[Geist,sans-serif]">
+    <div className="overflow-x-hidden bg-background text-on-surface antialiased selection:bg-surface-container-high selection:text-secondary font-[Geist,sans-serif]">
       <Nav />
 
-      <main className="w-full pt-14 md:pt-16 bg-[#0D0D0D] min-h-screen flex flex-col">
+      <main className="w-full pt-14 md:pt-16 bg-background min-h-screen flex flex-col">
         <Hero />
         <About />
         <Projects />

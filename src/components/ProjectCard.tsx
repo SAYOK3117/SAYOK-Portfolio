@@ -13,10 +13,10 @@ interface ProjectCardProps {
 
 function CardInner({ project }: { project: Project }) {
   return (
-    <div className="group bg-[#111111] border border-[#252525] hover:border-[#3E3E3E] transition-colors h-full flex flex-col">
+    <div className="group bg-surface-container border border-outline hover:border-outline-hover transition-colors h-full flex flex-col">
       {/* Top bar */}
-      <div className="flex items-center px-4 sm:px-6 py-3 sm:py-3.5 border-b border-[#252525]">
-        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#B8A98A] leading-tight">
+      <div className="flex items-center px-4 sm:px-6 py-3 sm:py-3.5 border-b border-outline">
+        <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-secondary leading-tight">
           {project.context}
         </span>
       </div>
@@ -24,20 +24,20 @@ function CardInner({ project }: { project: Project }) {
       {/* Body */}
       <div className="p-4 sm:p-6 flex flex-col gap-4 flex-1">
         <div className="flex flex-col gap-1.5">
-          <h3 className="text-[#E5E2E1] text-lg sm:text-xl font-normal tracking-tight leading-snug font-[Geist]">
+          <h3 className="text-on-surface text-lg sm:text-xl font-normal tracking-tight leading-snug font-[Geist]">
             {project.title}
           </h3>
-          <p className="text-[#A1A19A] text-sm leading-relaxed">
+          <p className="text-on-surface-variant text-sm leading-relaxed">
             {project.subtitle}
           </p>
         </div>
 
         {/* Stack pills */}
-        <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-[#252525]">
+        <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-outline">
           {project.stack.map((tech) => (
             <span
               key={tech}
-              className="font-mono text-[10px] uppercase tracking-wide text-[#6F6D68] border border-[#252525] bg-[#0D0D0D] px-2 py-1"
+              className="font-mono text-[10px] uppercase tracking-wide text-muted border border-outline bg-background px-2 py-1"
             >
               {tech}
             </span>

@@ -1,7 +1,7 @@
 /* ─────────────────────────────────────────────
    Stitch V2 — Footer
    Mobile: stacks identity → nav → social → copy.
-   1px #252525 top border. No shadows.
+   1px #292824 top border. No shadows.
    ───────────────────────────────────────────── */
 
 const NAV_LINKS = [
@@ -21,18 +21,18 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer role="contentinfo" className="w-full border-t border-[#252525] bg-[#0D0D0D]">
+    <footer role="contentinfo" className="w-full border-t border-outline bg-background">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12">
 
         {/* Main footer row — stacks on mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 sm:py-12 border-b border-[#252525]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 py-10 sm:py-12 border-b border-outline">
 
           {/* Identity */}
           <div className="flex flex-col gap-1.5">
-            <p className="font-[Geist] text-sm font-normal text-[#E5E2E1]">
+            <p className="font-[Geist] text-sm font-normal text-on-surface">
               Sayok Biswas
             </p>
-            <p className="font-mono text-[10px] text-[#6F6D68]">
+            <p className="font-mono text-[10px] text-muted">
               CSE @ PSIT Kanpur
             </p>
           </div>
@@ -44,7 +44,7 @@ export function Footer() {
                 <li key={label}>
                   <a
                     href={href}
-                    className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#A1A19A] hover:text-[#E5E2E1] transition-colors py-1 inline-block"
+                    className="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-on-surface transition-colors py-1 inline-block"
                   >
                     {label}
                   </a>
@@ -63,7 +63,7 @@ export function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${label} (opens in new tab)`}
-                    className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#A1A19A] hover:text-[#E5E2E1] transition-colors py-1 inline-block"
+                    className="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant hover:text-on-surface transition-colors py-1 inline-block"
                   >
                     {label} ↗
                   </a>
@@ -75,10 +75,10 @@ export function Footer() {
 
         {/* Copyright strip */}
         <div className="py-4 sm:py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <p className="font-mono text-[10px] text-[#6F6D68]">
+          <p className="font-mono text-[10px] text-muted">
             © {year} Sayok Biswas
           </p>
-          <p className="font-mono text-[10px] text-[#6F6D68]">
+          <p className="font-mono text-[10px] text-muted">
             Built with React · TypeScript · Vite
           </p>
         </div>

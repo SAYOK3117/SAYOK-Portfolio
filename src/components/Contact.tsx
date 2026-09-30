@@ -33,19 +33,19 @@ export function Contact() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="w-full border-b border-[#252525] bg-[#0D0D0D]"
+      className="w-full border-b border-outline bg-background"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-12 py-16 md:py-32">
 
         {/* ── Section header ── */}
-        <div className="flex items-end justify-between pb-4 border-b border-[#252525] mb-10 md:mb-16">
+        <div className="flex items-end justify-between pb-4 border-b border-outline mb-10 md:mb-16">
           <div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8A98A] block mb-1.5">
-              06 / CONTACT
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary block mb-1.5">
+              CONTACT
             </span>
             <h2
               id="contact-heading"
-              className="text-xl md:text-3xl font-normal text-white tracking-tight font-[Geist]"
+              className="text-xl md:text-3xl font-normal text-on-surface tracking-tight font-[Geist]"
             >
               Contact
             </h2>
@@ -63,10 +63,10 @@ export function Contact() {
             transition={{ duration: 0.55 }}
             className="lg:col-span-7"
           >
-            <h3 className="text-[#E5E2E1] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-[1.1] font-[Geist] mb-4 sm:mb-6">
+            <h3 className="text-on-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-[1.1] font-[Geist] mb-4 sm:mb-6">
               Let's build something.
             </h3>
-            <p className="text-[#A1A19A] text-sm sm:text-base md:text-lg leading-relaxed max-w-md">
+            <p className="text-on-surface-variant text-sm sm:text-base md:text-lg leading-relaxed max-w-md">
               Open to software engineering internships and collaborations.
             </p>
           </motion.div>
@@ -80,12 +80,12 @@ export function Contact() {
             className="lg:col-span-5 flex flex-col gap-3 sm:gap-4"
           >
             {/* Email card */}
-            <div className="border border-[#252525] bg-[#141414] p-5 sm:p-6 flex flex-col gap-4 sm:gap-5">
+            <div className="border border-outline bg-surface-container p-5 sm:p-6 flex flex-col gap-4 sm:gap-5">
               <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8A98A] mb-2">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary mb-2">
                   Email
                 </p>
-                <p className="font-mono text-xs sm:text-sm text-[#E5E2E1] break-all">
+                <p className="font-mono text-xs sm:text-sm text-on-surface break-all">
                   {EMAIL}
                 </p>
               </div>
@@ -97,7 +97,7 @@ export function Contact() {
                   id="copy-email-btn"
                   onClick={handleCopy}
                   aria-label="Copy email address"
-                  className="flex items-center justify-center gap-2 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.15em] border border-[#252525] text-[#A1A19A] hover:border-[#3E3E3E] hover:text-[#E5E2E1] transition-colors min-h-[44px]"
+                  className="flex items-center justify-center gap-2 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.15em] border border-outline text-on-surface-variant hover:border-outline-hover hover:text-on-surface transition-colors min-h-[44px]"
                 >
                   {copied ? (
                     <>
@@ -121,7 +121,7 @@ export function Contact() {
                   href={`mailto:${EMAIL}`}
                   id="send-email-link"
                   aria-label="Send email"
-                  className="flex items-center justify-center gap-2 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.15em] bg-white text-[#0D0D0D] hover:bg-[#C9BC9F] transition-colors min-h-[44px]"
+                  className="flex items-center justify-center gap-2 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.15em] bg-secondary text-on-primary hover:bg-secondary-fixed transition-colors min-h-[44px]"
                 >
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <rect x="1" y="2" width="10" height="8" stroke="currentColor" strokeWidth="1"/>
@@ -133,7 +133,7 @@ export function Contact() {
             </div>
 
             {/* Social links — full-width rows */}
-            <div className="flex flex-col gap-px bg-[#252525]">
+            <div className="flex flex-col gap-px bg-outline">
               {SOCIAL.map(({ label, handle, href }) => (
                 <a
                   key={label}
@@ -142,17 +142,17 @@ export function Contact() {
                   rel="noopener noreferrer"
                   id={`contact-${label.toLowerCase()}-link`}
                   aria-label={`${label} profile (opens in new tab)`}
-                  className="flex items-center justify-between px-5 sm:px-6 py-4 bg-[#141414] hover:bg-[#1A1A1A] transition-colors group min-h-[52px]"
+                  className="flex items-center justify-between px-5 sm:px-6 py-4 bg-surface-container hover:bg-surface-container-high transition-colors group min-h-[52px]"
                 >
                   <div className="flex flex-col gap-0.5">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#B8A98A]">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-secondary">
                       {label}
                     </span>
-                    <span className="font-mono text-[10px] text-[#6F6D68]">
+                    <span className="font-mono text-[10px] text-muted">
                       {handle}
                     </span>
                   </div>
-                  <span aria-hidden="true" className="font-mono text-[10px] text-[#6F6D68] group-hover:text-[#A1A19A] transition-colors">
+                  <span aria-hidden="true" className="font-mono text-[10px] text-muted group-hover:text-on-surface-variant transition-colors">
                     ↗
                   </span>
                 </a>
