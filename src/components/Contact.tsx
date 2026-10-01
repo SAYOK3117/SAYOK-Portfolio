@@ -8,13 +8,34 @@ import { motion } from 'framer-motion';
    No phone number (per PRD §9.6).
    ───────────────────────────────────────────── */
 
+const GithubIcon = ({ className, strokeWidth = 1.5 }: { className?: string, strokeWidth?: number }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.89C18.8 3.53 18.5 2 18.5 2s-1.2 0-3.2 1.5a11.5 11.5 0 0 0-6 0C7.3 2 6.1 2 6.1 2s-.3 1.53.2 3.11A5.5 5.5 0 0 0 4.8 9c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4" />
+    <path d="M4 19c-1.33 0-2.67-1-4-3" />
+  </svg>
+);
+
+const LinkedinIcon = ({ className, strokeWidth = 1.5 }: { className?: string, strokeWidth?: number }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const LeetCodeIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+    <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.515 1.365.497 1.9-.038.536-.536.554-1.387.039-1.901l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.498-1.366-.037-1.901-.535-.536-1.387-.554-1.902-.039l-10.1 10.241c-.466.467-.702 1.15-.702 1.863s.235 1.357.702 1.824l4.332 4.363c.467.467 1.111.662 1.824.662s1.357-.195 1.824-.662l2.697-2.606c.514-.515 1.365-.497 1.9.038.536.536.554 1.387.039 1.901z"/>
+  </svg>
+);
+
 const EMAIL = 'sayokbiswas538@gmail.com';
 
 const SOCIAL = [
-  { label: 'GitHub',   handle: 'SAYOK3117',           href: 'https://github.com/SAYOK3117' },
-  { label: 'LinkedIn', handle: 'sayok-biswas',         href: 'https://www.linkedin.com/in/sayok-biswas-479123387/' },
-  { label: 'LeetCode', handle: 'sayok_biswas__07',     href: 'https://leetcode.com/u/sayok_biswas__07/' },
-] as const;
+  { label: 'GitHub',   handle: 'SAYOK3117',           href: 'https://github.com/SAYOK3117', Icon: GithubIcon },
+  { label: 'LinkedIn', handle: 'sayok-biswas',         href: 'https://www.linkedin.com/in/sayok-biswas-479123387/', Icon: LinkedinIcon },
+  { label: 'LeetCode', handle: 'sayok_biswas__07',     href: 'https://leetcode.com/u/sayok_biswas__07/', Icon: LeetCodeIcon },
+];
 
 export function Contact() {
   const [copied, setCopied] = useState(false);
@@ -132,9 +153,9 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Social links — full-width rows */}
-            <div className="flex flex-col gap-px bg-outline">
-              {SOCIAL.map(({ label, handle, href }) => (
+            {/* Social links — highly attractive glowing cards */}
+            <div className="flex flex-col gap-3">
+              {SOCIAL.map(({ label, handle, href, Icon }) => (
                 <a
                   key={label}
                   href={href}
@@ -142,17 +163,22 @@ export function Contact() {
                   rel="noopener noreferrer"
                   id={`contact-${label.toLowerCase()}-link`}
                   aria-label={`${label} profile (opens in new tab)`}
-                  className="flex items-center justify-between px-5 sm:px-6 py-4 bg-surface-container hover:bg-surface-container-high transition-colors group min-h-[52px]"
+                  className="group flex items-center justify-between px-5 sm:px-6 py-4 rounded-xl border border-outline bg-surface-container hover:bg-surface-container-high hover:border-secondary hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(184,155,114,0.15)] transition-all duration-300 min-h-[72px]"
                 >
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-secondary">
-                      {label}
-                    </span>
-                    <span className="font-mono text-[10px] text-muted">
-                      {handle}
-                    </span>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-center w-11 h-11 rounded-full border border-outline group-hover:border-secondary/50 bg-background text-on-surface-variant group-hover:text-secondary group-hover:bg-secondary/10 transition-colors duration-300">
+                      <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.1em] text-on-surface group-hover:text-secondary transition-colors duration-300">
+                        {label}
+                      </span>
+                      <span className="font-mono text-[10px] sm:text-xs text-muted group-hover:text-on-surface-variant transition-colors duration-300">
+                        {handle}
+                      </span>
+                    </div>
                   </div>
-                  <span aria-hidden="true" className="font-mono text-[10px] text-muted group-hover:text-on-surface-variant transition-colors">
+                  <span aria-hidden="true" className="font-mono text-[14px] text-muted group-hover:text-secondary transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                     ↗
                   </span>
                 </a>
