@@ -101,7 +101,7 @@ export function Contact() {
             className="lg:col-span-5 flex flex-col gap-3 sm:gap-4"
           >
             {/* Email card */}
-            <div className="border border-outline bg-surface-container p-5 sm:p-6 flex flex-col gap-4 sm:gap-5">
+            <div className="rounded-xl border border-outline bg-surface-container p-5 sm:p-7 flex flex-col gap-4 sm:gap-6 hover:shadow-[0_8px_30px_rgba(184,155,114,0.1)] transition-all duration-300 mb-2">
               <div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary mb-2">
                   Email
@@ -118,7 +118,7 @@ export function Contact() {
                   id="copy-email-btn"
                   onClick={handleCopy}
                   aria-label="Copy email address"
-                  className="flex items-center justify-center gap-2 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.15em] border border-outline text-on-surface-variant hover:border-outline-hover hover:text-on-surface transition-colors min-h-[44px]"
+                  className="group flex items-center justify-center gap-2 px-6 py-3 font-mono text-[10px] sm:text-xs uppercase tracking-wider font-medium border border-outline bg-background text-on-surface-variant hover:border-secondary hover:text-secondary hover:-translate-y-1 hover:shadow-lg transition-all duration-300 min-h-[48px] rounded-lg"
                 >
                   {copied ? (
                     <>
@@ -142,13 +142,16 @@ export function Contact() {
                   href={`mailto:${EMAIL}`}
                   id="send-email-link"
                   aria-label="Send email"
-                  className="flex items-center justify-center gap-2 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.15em] bg-secondary text-on-primary hover:bg-secondary-fixed transition-colors min-h-[44px]"
+                  className="group relative overflow-hidden flex items-center justify-center gap-2 px-6 py-3 font-mono text-[10px] sm:text-xs uppercase tracking-wider font-medium bg-secondary text-on-primary transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(184,155,114,0.5)] min-h-[48px] rounded-lg"
                 >
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                    <rect x="1" y="2" width="10" height="8" stroke="currentColor" strokeWidth="1"/>
-                    <path d="M1 3l5 4 5-4" stroke="currentColor" strokeWidth="1"/>
-                  </svg>
-                  Send Email
+                  <div className="absolute inset-0 bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" aria-hidden="true"></div>
+                  <span className="relative z-10 flex items-center gap-2">
+                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <rect x="1" y="2" width="10" height="8" stroke="currentColor" strokeWidth="1"/>
+                      <path d="M1 3l5 4 5-4" stroke="currentColor" strokeWidth="1"/>
+                    </svg>
+                    Send Email
+                  </span>
                 </a>
               </div>
             </div>
