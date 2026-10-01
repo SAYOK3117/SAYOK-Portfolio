@@ -138,15 +138,15 @@ export function Hero() {
             <div className="hidden sm:block h-4 w-px bg-outline mx-1" aria-hidden="true" />
 
             {/* Social icon links */}
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-5 mt-2 sm:mt-0 w-full sm:w-auto">
-              <a href="https://github.com/SAYOK3117" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="GitHub">
-                <GithubIcon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 mt-4 sm:mt-0 w-full sm:w-auto">
+              <a href="https://github.com/SAYOK3117" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-11 h-11 rounded-full bg-surface-container border border-outline text-on-surface-variant hover:text-secondary hover:border-secondary hover:bg-surface-container-high transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" aria-label="GitHub">
+                <GithubIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
               </a>
-              <a href="https://www.linkedin.com/in/sayok-biswas-479123387/" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="LinkedIn">
-                <LinkedinIcon className="w-[18px] h-[18px]" strokeWidth={1.5} />
+              <a href="https://www.linkedin.com/in/sayok-biswas-479123387/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-11 h-11 rounded-full bg-surface-container border border-outline text-on-surface-variant hover:text-secondary hover:border-secondary hover:bg-surface-container-high transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" aria-label="LinkedIn">
+                <LinkedinIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
               </a>
-              <a href="https://leetcode.com/u/sayok_biswas__07/" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="LeetCode">
-                <LeetCodeIcon className="w-[18px] h-[18px]" />
+              <a href="https://leetcode.com/u/sayok_biswas__07/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center w-11 h-11 rounded-full bg-surface-container border border-outline text-on-surface-variant hover:text-secondary hover:border-secondary hover:bg-surface-container-high transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" aria-label="LeetCode">
+                <LeetCodeIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
               </a>
             </div>
           </motion.div>
