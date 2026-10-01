@@ -121,18 +121,20 @@ export function Hero() {
             {/* Primary CTA */}
             <a
               href="#projects"
-              className="inline-flex items-center justify-center px-5 py-3.5 sm:py-2.5 bg-secondary text-on-primary font-mono text-xs uppercase tracking-wider font-medium hover:bg-secondary-fixed transition-colors min-h-[48px] w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 bg-secondary text-on-primary font-mono text-xs uppercase tracking-wider font-medium hover:bg-secondary-fixed transition-all duration-300 hover:-translate-y-1 hover:shadow-lg min-h-[48px] w-full sm:w-auto rounded-none"
             >
-              Selected Work ↓
+              <span>Selected Work</span>
+              <span className="transition-transform duration-300 group-hover:translate-y-1">↓</span>
             </a>
             {/* Secondary CTA — Resume PDF */}
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-5 py-3.5 sm:py-2.5 bg-transparent border border-outline text-on-surface hover:text-on-surface hover:border-secondary font-mono text-xs uppercase tracking-wider transition-colors min-h-[48px] w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 bg-transparent border border-outline text-on-surface hover:text-secondary hover:border-secondary font-mono text-xs uppercase tracking-wider transition-all duration-300 hover:-translate-y-1 hover:shadow-lg min-h-[48px] w-full sm:w-auto rounded-none"
             >
-              Resume ↗
+              <span>Resume</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
             </a>
 
             <div className="hidden sm:block h-4 w-px bg-outline mx-1" aria-hidden="true" />
