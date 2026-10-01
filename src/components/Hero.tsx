@@ -1,5 +1,19 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin } from 'lucide-react';
+
+const GithubIcon = ({ className, strokeWidth = 1.5 }: { className?: string, strokeWidth?: number }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.24c3-.34 6-1.53 6-6.76a5.5 5.5 0 0 0-1.5-3.89C18.8 3.53 18.5 2 18.5 2s-1.2 0-3.2 1.5a11.5 11.5 0 0 0-6 0C7.3 2 6.1 2 6.1 2s-.3 1.53.2 3.11A5.5 5.5 0 0 0 4.8 9c0 5.23 3 6.42 6 6.76a4.8 4.8 0 0 0-1 3.24v4" />
+    <path d="M4 19c-1.33 0-2.67-1-4-3" />
+  </svg>
+);
+
+const LinkedinIcon = ({ className, strokeWidth = 1.5 }: { className?: string, strokeWidth?: number }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
 
 const LeetCodeIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -126,10 +140,10 @@ export function Hero() {
             {/* Social icon links */}
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-5 mt-2 sm:mt-0 w-full sm:w-auto">
               <a href="https://github.com/SAYOK3117" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="GitHub">
-                <Github className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                <GithubIcon className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </a>
               <a href="https://www.linkedin.com/in/sayok-biswas-479123387/" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="LinkedIn">
-                <Linkedin className="w-[18px] h-[18px]" strokeWidth={1.5} />
+                <LinkedinIcon className="w-[18px] h-[18px]" strokeWidth={1.5} />
               </a>
               <a href="https://leetcode.com/u/sayok_biswas__07/" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-on-surface hover:scale-110 transition-all p-2" aria-label="LeetCode">
                 <LeetCodeIcon className="w-[18px] h-[18px]" />
