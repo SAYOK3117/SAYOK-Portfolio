@@ -121,10 +121,11 @@ export function Hero() {
             {/* Primary CTA */}
             <a
               href="#projects"
-              className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 bg-secondary text-on-primary font-mono text-xs uppercase tracking-wider font-medium hover:bg-secondary-fixed transition-all duration-300 hover:-translate-y-1 hover:shadow-lg min-h-[48px] w-full sm:w-auto rounded-none"
+              className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-3 bg-secondary text-on-primary font-mono text-xs uppercase tracking-wider font-medium transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(184,155,114,0.5)] min-h-[48px] w-full sm:w-auto rounded-none"
             >
-              <span>Selected Work</span>
-              <span className="transition-transform duration-300 group-hover:translate-y-1">↓</span>
+              <div className="absolute inset-0 bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" aria-hidden="true"></div>
+              <span className="relative z-10">Selected Work</span>
+              <span className="relative z-10 transition-transform duration-300 group-hover:translate-y-1">↓</span>
             </a>
             {/* Secondary CTA — Resume PDF */}
             <a
